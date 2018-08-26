@@ -51,11 +51,9 @@
       position: absolute;
       left: 10%;
       top: 15%;
-      /*background: rgba(121, 143, 181,.4);*/
       background: rgba(137, 132, 132,.4);
 
       border-radius: inherit;
-      /*border: double thick #798fb5;*/
       border: double thick rgba(137, 132, 132, .5);
     }
 
@@ -67,7 +65,6 @@
       left: 25%;
       top: 25%;
       border-radius: 50px;
-      /*border: thick double #798fb5;*/
       border: double thick rgba(137, 132, 132, .9);
        div {
         width: 100%;

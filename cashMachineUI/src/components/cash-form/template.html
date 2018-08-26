@@ -1,0 +1,64 @@
+<div class="hero is-fullheight is-primary is-bold fake-screen">
+  <div class="fake-screen--overlay is-fullheight"></div>
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered is-uppercase">
+        Welcome to your bills machine
+      </h1>
+      <h2 class="subtitle">Enter your withdrawal
+        <b-tooltip label="Use multiples of $10" type="is-dark" dashed animated>
+          amount
+        </b-tooltip> below.</h2>
+      <form id="signup-form">
+        <div class="field container half">
+          <div class="control has-icons-left">
+            <input type="text" class="input is-large" name="amount" maxlength="6"
+                   v-model="cash" :class="{'is-danger' : cash % 10 !==0}"
+                   v-on:keypress="isNumber($event)">
+            <span class="icon is-large is-left">
+                  <i class="mdi mdi-currency-usd"></i>
+                 </span>
+            <p class="help is-danger is-capitalized has-text-weight-semibold">
+              {{error}}
+            </p>
+            <p class="help is-warning is-capitalized has-text-weight-semibold" v-if="cash < 10 && edited">
+              <i class="mdi mdi-alert"></i> Check your amount, your total should be more than $10 </p>
+            <p class="help is-warning is-capitalized has-text-weight-semibold" v-if="cash % 10 !== 0">
+              <i class="mdi mdi-alert"></i> Check your amount, denominations of $10, $20, $50 or $100 are available
+            </p>
+          </div>
+        </div>
+
+        <!-- submit button -->
+        <div class="control has-text-right">
+          <button class="button is-danger is-medium"
+                  v-on:click.prevent="calculateBills(), loading = true" :disabled="cash < 10 || loading || cash % 10 !== 0">
+            Get Cash</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <transition name="fade">
+    <div class="backdrop" v-show="showAlert"></div>
+  </transition>
+
+  <transition name="slide-fade">
+    <div class="bills-container has-background-white container is-full is-clearfix" v-show="showAlert">
+      <div class="has-text-right is-fullwidth">
+        <button type="button" class="close is-large has-text-dark" v-on:click.prevent="close" v-show="!loading">
+          <span class="icon"><i class="mdi mdi-close-box"></i></span>
+        </button>
+      </div>
+      <h2 class="has-text-danger is-size-3 is-uppercase has-text-weight-bold">{{alertTitle}}</h2>
+      <h4 class="has-text-dark is-size-4 is-uppercase has-text-weight-bold bills"
+          :class="{'has-text-danger' : notes.length}">{{alertMessage}}{{cash | currency}}</h4>
+      <div class="columns is is-multiline is-centered bills" v-show="notes.length">
+        <div class="column is-4" v-for="note in notes" :key="note.bill">
+          <Notes v-bind:bill="note"></Notes>
+        </div>
+
+      </div>
+    </div>
+  </transition>
+
+</div>

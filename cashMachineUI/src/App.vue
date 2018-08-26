@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CashForm from './components/CashForm.vue'
+import CashForm from './components/cash-form/CashForm.vue'
 
 export default {
   name: 'app',
