@@ -12,7 +12,7 @@ With small simple tests for the BackEnd.
 OR
 * Download [cash-machine-Download](https://github.com/daniasalli/cash-machine/archive/master.zip)
 
-There are 2 folders in the root directory. One for each project ([FrontEnd]() and [BackEnd]())
+There are 2 folders in the root directory. One for each project ([FrontEnd](https://github.com/daniasalli/cash-machine/tree/master/cashMachineUI) and [BackEnd](https://github.com/daniasalli/cash-machine/tree/master/cashMachineApi))
 
 Using the console, go to each directory and 
 instal dependencies for each project using
