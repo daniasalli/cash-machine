@@ -1,4 +1,4 @@
-# Cash Machine - Sample Project with VuewJs, NodeJs and ChaiJs
+# Cash Machine - Sample Project with VueJs, NodeJs and ChaiJs
 
 This project is divided into 2:
  * FrontEnd
