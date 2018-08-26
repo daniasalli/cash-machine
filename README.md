@@ -15,13 +15,13 @@ OR
 There are 2 folders in the root directory. One for each project ([FrontEnd](https://github.com/daniasalli/cash-machine/tree/master/cashMachineUI) and [BackEnd](https://github.com/daniasalli/cash-machine/tree/master/cashMachineApi))
 
 Using the console, go to each directory and 
-instal dependencies for each project using
+install dependencies for each project using
 ```console
 npm install
 ```
 
 Then, still using the console, go the BackEnd directory,
-run the tests to validate is working and
+run the tests to validate it is working and
 start the server using:
 ```console
 npm test
